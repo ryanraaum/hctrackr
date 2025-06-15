@@ -1,0 +1,20 @@
+Package: hctrackr
+Title: Track Trail and Target Hiking Challenges
+Version: 0.0.0.9000
+Authors@R: c(
+    person(
+      "Ryan", "Raaum",
+      email = "code@raaum.org",
+      role = c("aut", "cre")
+    )
+  )
+Description: Tools and standards for specifying trail and target 
+  hiking challenges as well as assessing and recording completion
+  of those challenges.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
