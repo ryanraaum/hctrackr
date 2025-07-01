@@ -24,4 +24,5 @@ Imports:
     assertthat,
     dplyr,
     sf,
-    tracktools
+    tracktools,
+    yaml
