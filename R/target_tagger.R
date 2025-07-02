@@ -1,12 +1,12 @@
 
-#' Make point target tagger function for given list of points
+#' Make tagger function for given list of target points
 #'
-#' Given an sf data frame with a list of point targets, this will create a
+#' Given an sf data frame with a list of targets, this will create a
 #' function that determines which a given track intersects. The sf data frame
 #' must have an id_column and the required sf "geometry" column and should be in
 #' the GPS (4326) coordinate reference system.
 #'
-#' @param targets_sf An sf data frame of point targets
+#' @param targets_sf An sf data frame of target points
 #' @param id_column The name of the id column
 #'
 #' @returns A function that takes a GPX track as an argument
@@ -16,15 +16,15 @@
 #' a_target <- sf::st_as_sf(
 #'     data.frame(target_id="a_view", lat=42.17, lon=-74.35),
 #'     coords=2:3, crs=4326)
-#' target_tagger <- make_point_tagger_function(a_point)
+#' target_tagger <- make_target_tagger_function(a_target)
 make_target_tagger_function <- function(targets_sf, id_column="target_id") {
   # package check gets confused by piped variables
   geometry <- target_id <- time <- distance <- time_from_min <- NULL
   # make sure that we know what we are dealing with
   assertthat::assert_that(inherits(targets_sf, "sf"),
-                          msg="targets_sf must be an sf data frame")
+                          msg="`targets_sf` must be an sf data frame")
   assertthat::assert_that(id_column %in% colnames(targets_sf),
-                          msg="an id column is required")
+                          msg="an `id_column` is required")
 
   # convert id_column name to "target_id"
   targets_sf <- targets_sf |> dplyr::rename(target_id = eval(id_column))

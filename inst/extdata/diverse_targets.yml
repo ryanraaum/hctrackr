@@ -1,0 +1,4 @@
+set_name: "Diverse Targets Challenge"
+date_start: 2025-01-01
+note: "A set of diverse point targets for examples and testing."
+# if no `requirements` section, then all required once anytime
