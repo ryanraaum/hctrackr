@@ -1,0 +1,13 @@
+set_name: "Catskill 3500 Club"
+set_version: 2021-03-22
+note: "The required peaks for full membership in the Catskill 3500 Club."
+requirements:
+  b_core:
+    when: "any"
+  a_winter:
+    when: "winter"
+    limit_to:
+      - "Panther"
+      - "Blackhead"
+      - "Slide"
+      - "Balsam"

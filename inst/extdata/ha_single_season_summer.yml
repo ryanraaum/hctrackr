@@ -1,0 +1,4 @@
+set_name: "Hikers Anonymous Single Season Summer"
+set_version: 2021-03-22
+note: "Summit all peaks during a single summer season."
+when: "single summer"

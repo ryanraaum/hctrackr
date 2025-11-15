@@ -25,5 +25,7 @@ Imports:
     assertthat,
     dplyr,
     sf,
+    stringr,
+    tibble,
     tracktools,
     yaml

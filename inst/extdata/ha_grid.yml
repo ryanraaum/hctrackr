@@ -1,0 +1,4 @@
+set_name: "Hikers Anonymous Grid"
+set_version: 2021-03-22
+note: "The required peaks to complete the Hikers Anonymous grid."
+when: "every month"
