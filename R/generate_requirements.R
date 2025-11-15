@@ -14,8 +14,25 @@ generate_requirements_subset <- function(info, targets) {
                             season = info$when$season,
                             month = info$when$month)
 
-  return(dplyr::cross_join(targets, when_df))
+  this_subset <- dplyr::cross_join(targets, when_df)
 
+  if (info$needed == "all") {
+    this_subset$needed = nrow(this_subset)
+  } else if (length(info$needed) == 1 &&
+             is.numeric(info$needed) &&
+             info$needed <= nrow(this_subset)) {
+    this_subset$needed = info$needed
+  } else if (length(info$needed) == 1 &&
+             stringr::str_detect(info$needed, "^[1-9][0-9]*$")) {
+    needed = as.numeric(info$needed)
+    if (needed <= nrow(this_subset)) {
+      this_subset$needed <- needed
+    }
+  }
+
+  assertthat::assert_that("needed" %in% names(this_subset))
+
+  return(this_subset)
   # if (info$single == "no") {
   #   # not restricted to a single year or season
   #   if (info$during == "any") {
